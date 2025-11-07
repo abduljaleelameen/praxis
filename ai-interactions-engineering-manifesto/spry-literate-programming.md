@@ -450,6 +450,6 @@ All you need is Markdown.
 
 - Star us on [GitHub](https://github.com/programmablemd/spry)
 - Open an [issue](https://github.com/programmablemd/spry/issues)
-- Join the [discussion](https://github.com/programmablemd/spry/discussions)
+
 
 
