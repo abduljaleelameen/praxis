@@ -35,32 +35,56 @@ Here's a complete build system in Markdown:
 ````markdown
 # My Project Build System
 
-Our build process follows three stages: format, lint, then build.
+The build process follows three stages: format, lint, then build.
 
 ```sh fmt -d "Format code"
-deno fmt
-\```
+# Arguments: $1 = file pattern (optional, defaults to all files)
+FILES=${1:-.}
+echo "Formatting: $FILES"
+deno fmt $FILES
+```
 
-After formatting, we run the linter to catch potential issues:
+After formatting, the linter runs to catch potential issues:
 
 ```sh lint --dep fmt -d "Run linter after formatting"
-deno lint
-\```
+# Arguments: $1 = strict mode (--strict flag)
+STRICT=${1:-}
+echo "Linting with options: $STRICT"
+deno lint $STRICT
+```
 
-Finally, once the code is clean, we compile:
+Finally, once the code is clean, compilation occurs:
 
 ```sh build --dep lint -d "Build project"
-deno task build
-\```
+# Arguments: $1 = build mode (dev|prod), defaults to dev
+MODE=${1:-dev}
+echo "Building in $MODE mode..."
+
+if [ "$MODE" = "prod" ]; then
+  deno task build --minify --no-check
+else
+  deno task build
+fi
+```
 ````
 
 Save that as `Spryfile.md`, then run:
 
 ```bash
+# Run with defaults
 ./spry.ts task run build
+
+# Run production build
+./spry.ts task run build prod
+
+# Run with strict linting
+./spry.ts task run lint --strict
+
+# Format specific files
+./spry.ts task run fmt "src/**/*.ts"
 ```
 
-Spry automatically figures out the dependency graph (build depends on lint, which depends on fmt), runs them in order, and shows you exactly what's happening. The documentation explains *why*, and the code shows *how*. They can never drift apart because they're the same file.
+Spry automatically figures out the dependency graph (build depends on lint, which depends on fmt), runs them in order, and shows exactly what's happening. Tasks accept arguments, making them flexible and reusable. The documentation explains *why*, and the code shows *how*. They can never drift apart because they're the same file.
 
 ## How It Works: The Seven-Stage Pipeline
 
@@ -103,7 +127,12 @@ This application provides a simple interface for managing users.
 
 ## Database Setup
 
-First, we ensure our database has the right structure:
+First, the database structure is established.
+
+> **Spry SQL Keywords:**
+> - `HEAD` - SQL that runs once during initialization (e.g., schema setup)
+> - `PARTIAL` - Reusable SQL fragments that can be included in other pages
+> - `{ route: { caption: "..." } }` - JSON metadata for routing and navigation
 
 ```sql HEAD
 PRAGMA foreign_keys = ON;
@@ -117,10 +146,10 @@ CREATE TABLE IF NOT EXISTS users (
 
 -- Insert sample data for development
 INSERT OR IGNORE INTO users (id, name, email) VALUES
-  (1, 'Alice Smith', 'alice@example.com'),
-  (2, 'Bob Jones', 'bob@example.com'),
-  (3, 'Carol White', 'carol@example.com');
-\```
+  (1, 'User One', 'user1@example.com'),
+  (2, 'User Two', 'user2@example.com'),
+  (3, 'User Three', 'user3@example.com');
+```
 
 ## Shared Navigation
 
@@ -132,7 +161,7 @@ SELECT 'link' AS component;
 SELECT 'Home' AS title, '/' AS link;
 SELECT 'Users' AS title, '/users' AS link;
 SELECT 'Add User' AS title, '/add-user' AS link;
-\```
+```
 
 ## Home Page
 
@@ -149,7 +178,7 @@ SELECT 'Simple user CRUD operations' AS title;
 SELECT 'View all users' AS description;
 SELECT 'Add new users' AS description;
 SELECT 'Built with Spry + SQLPage' AS description;
-\```
+```
 
 ## User List Page
 
@@ -168,7 +197,7 @@ SELECT
   created_at AS 'Created'
 FROM users
 ORDER BY name;
-\```
+```
 
 ## Add User Page
 
@@ -181,17 +210,17 @@ SELECT 'form' AS component,
 
 SELECT 'name' AS name, 'text' AS type, TRUE AS required;
 SELECT 'email' AS name, 'email' AS type, TRUE AS required;
-\```
+```
 ````
 
-Now run it:
+Running the application:
 
 ```bash
 # Development mode with live reload
 ./spry.ts spc --fs dev-dist --watch --with-sqlpage
 ```
 
-Your browser opens automatically. You have a working web application. Change the Markdown, save, and the app reloads instantly.
+The browser opens automatically. A working web application is now running. Changes to the Markdown file trigger instant reloads.
 
 For production, package everything into a single database:
 
