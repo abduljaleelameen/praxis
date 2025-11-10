@@ -90,7 +90,7 @@ Spry automatically figures out the dependency graph (build depends on lint, whic
 
 Spry transforms your Markdown through seven distinct stages:
 
-![Spry Architecture](./Spry%20Overview.drawio.svg)
+![Spry Architecture](./spry-overview.drawio.svg)
 
 1. **PARSE** - Your Markdown becomes a structured notebook
 2. **CLASSIFY** - Code cells are identified and categorized
