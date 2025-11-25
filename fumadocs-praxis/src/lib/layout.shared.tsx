@@ -5,9 +5,5 @@ export function baseOptions(): BaseLayoutProps {
     nav: {
       title: 'Praxis',
     },
-    sidebar: {
-      collapsible: true,
-      defaultOpenLevel: 0,
-    },
   };
 }
