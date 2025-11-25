@@ -46,7 +46,7 @@ export default function HomePage() {
 
           <div className="grid md:grid-cols-2 gap-6 mb-16">
             {/* AI Interactions Engineering Manifesto */}
-            <Link href="/docs/trustable-ai-interactions-engineering-manifesto" className="group p-6 rounded-xl border-2 border-purple-200 dark:border-purple-900 bg-gradient-to-br from-purple-50 to-white dark:from-purple-950/30 dark:to-slate-900 hover:shadow-2xl hover:shadow-purple-500/20 transition-all hover:scale-105">
+            <Link href="/docs/trustable-ai-interactions-engineering" className="group p-6 rounded-xl border-2 border-purple-200 dark:border-purple-900 bg-gradient-to-br from-purple-50 to-white dark:from-purple-950/30 dark:to-slate-900 hover:shadow-2xl hover:shadow-purple-500/20 transition-all hover:scale-105">
               <div className="flex items-start gap-4">
                 <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-purple-500 to-purple-600 flex items-center justify-center flex-shrink-0 shadow-lg">
                   <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -65,7 +65,7 @@ export default function HomePage() {
             </Link>
 
             {/* AI Native Technical Communications */}
-            <Link href="/docs/overview" className="group p-6 rounded-xl border-2 border-blue-200 dark:border-blue-900 bg-gradient-to-br from-blue-50 to-white dark:from-blue-950/30 dark:to-slate-900 hover:shadow-2xl hover:shadow-blue-500/20 transition-all hover:scale-105">
+            <Link href="/docs/ai-native-technical-communications-doctrine" className="group p-6 rounded-xl border-2 border-blue-200 dark:border-blue-900 bg-gradient-to-br from-blue-50 to-white dark:from-blue-950/30 dark:to-slate-900 hover:shadow-2xl hover:shadow-blue-500/20 transition-all hover:scale-105">
               <div className="flex items-start gap-4">
                 <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center flex-shrink-0 shadow-lg">
                   <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -84,7 +84,7 @@ export default function HomePage() {
             </Link>
 
             {/* AI Native Software Engineering */}
-            <Link href="/docs/overview" className="group p-6 rounded-xl border-2 border-cyan-200 dark:border-cyan-900 bg-gradient-to-br from-cyan-50 to-white dark:from-cyan-950/30 dark:to-slate-900 hover:shadow-2xl hover:shadow-cyan-500/20 transition-all hover:scale-105">
+            <Link href="/docs/ai-native-tech-stack-engineering" className="group p-6 rounded-xl border-2 border-cyan-200 dark:border-cyan-900 bg-gradient-to-br from-cyan-50 to-white dark:from-cyan-950/30 dark:to-slate-900 hover:shadow-2xl hover:shadow-cyan-500/20 transition-all hover:scale-105">
               <div className="flex items-start gap-4">
                 <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-cyan-500 to-cyan-600 flex items-center justify-center flex-shrink-0 shadow-lg">
                   <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -103,7 +103,7 @@ export default function HomePage() {
             </Link>
 
             {/* AI Context Playbooks */}
-            <Link href="/docs/overview" className="group p-6 rounded-xl border-2 border-emerald-200 dark:border-emerald-900 bg-gradient-to-br from-emerald-50 to-white dark:from-emerald-950/30 dark:to-slate-900 hover:shadow-2xl hover:shadow-emerald-500/20 transition-all hover:scale-105">
+            <Link href="/docs/ai-context-playbooks-section" className="group p-6 rounded-xl border-2 border-emerald-200 dark:border-emerald-900 bg-gradient-to-br from-emerald-50 to-white dark:from-emerald-950/30 dark:to-slate-900 hover:shadow-2xl hover:shadow-emerald-500/20 transition-all hover:scale-105">
               <div className="flex items-start gap-4">
                 <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-emerald-500 to-emerald-600 flex items-center justify-center flex-shrink-0 shadow-lg">
                   <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
